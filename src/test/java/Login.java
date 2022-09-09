@@ -11,5 +11,11 @@ public class Login {
     public void loginPage() {
         System.out.println("testpage");
     }
+
+    @Test
+    public void PradapTest()
+    {
+        System.out.println("Pradap");
+    }
 }
 
