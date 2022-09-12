@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Zoom Car">
+    <test name="Zoom Car Search Scenario">
+        <classes>
+            <class name="LoginClass"/>
+            <methods>
+                <include name="searchForMadivala"></include>
+                <include name="searchForKempagowda"></include>
+            </methods>
+        </classes>
+    </test> <!-- Test -->
+
+</suite> <!-- Suite -->
