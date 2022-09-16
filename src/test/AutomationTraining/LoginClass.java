@@ -18,28 +18,29 @@ WebDriverWait wait;
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));    }
-
-
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    }
     @BeforeMethod()
         public void launchURL()
     {
         driver.get("https://www.zoomcar.com/in/bangalore");
     }
         @Test(priority = 1)
-        public void searchForMadivala()
-    {
-
+        public void searchForMadivala() throws InterruptedException {
         driver.findElement(By.xpath("//div[contains(text(),'Pick Up City, Airport, Address or Hotel')]")).click();
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.id("origin")));
         driver.findElement(By.id("origin")).sendKeys("Madivala");
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//p[@class='ellipsis']")));
-
         List<WebElement> options = driver.findElements(By. xpath("//p[@class='ellipsis']"));
-
         for (WebElement opt : options) {
-            if (opt.getText().equals("Madivala, Karnataka, India")) {
-                opt.click();
+
+            // For reading the texts with the given search results
+            System.out.println(opt.getText());
+
+            // If the search results shows "Madiwala, Bengaluru, Karnataka, India" click on the element:
+            Thread.sleep(5000);
+           if (opt.getText().contains("Madiwala, Bengaluru, Karnataka, India")) {
+               opt.click();
             }
         }
     }
@@ -55,21 +56,24 @@ WebDriverWait wait;
         List<WebElement> options = driver.findElements(By. xpath("//p[@class='ellipsis']"));
 
         for (WebElement opt : options) {
-            if (opt.getText().equals("            Hunachur, Karnataka, India")) {
+            // For reading the texts with the given search results
+            System.out.println(opt.getText());
+            if (opt.getText().contains("Kempegowda Road, Bengaluru, India")){
                 opt.click();
             }
         }
     }
 
-    @AfterSuite
+     @AfterSuite
     public void closeBrowser() {
-        try {
-            Thread.sleep(10000L);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(10000L);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         driver.quit();
-    }}
+}
+}
 
 
 
