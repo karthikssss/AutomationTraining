@@ -29,12 +29,12 @@ public class DateAndTimeCalculator {
     @BeforeSuite
     public void triggerSetUp()
     {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--headless");
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--no-sandbox");
+//        options.addArguments("--disable-dev-shm-usage");
+//        options.addArguments("--headless");
         WebDriverManager.chromedriver().setup();
-        driver= new ChromeDriver(options);
+        driver= new ChromeDriver();
         launchScreen= new LaunchScreen(driver);
         signInPopUp= new SignInPopUp(driver);
         customScreen= new CustomScreen(driver);
