@@ -19,4 +19,4 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn test -Dtest="MainTest.RestAssuredTest" -DtestFailureIgnore=true
+      run: mvn test -Dtest="MainTest.RestAssuredTest" -DfailIfNoTests=false
