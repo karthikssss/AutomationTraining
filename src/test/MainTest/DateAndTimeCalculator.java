@@ -25,16 +25,15 @@ public class DateAndTimeCalculator {
     SignInPopUp signInPopUp;
     WebDriverWait wait;
     CustomScreen customScreen;
-
+    ChromeOptions options;
     @BeforeSuite
     public void triggerSetUp()
     {
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--no-sandbox");
-//        options.addArguments("--disable-dev-shm-usage");
-//        options.addArguments("--headless");
-        WebDriverManager.chromedriver().setup();
-        driver= new ChromeDriver();
+          options = new ChromeOptions();
+        options.addArguments("--headless", "--window-size=1920,1200","--ignore-certificate-errors");
+
+         WebDriverManager.chromedriver().setup();
+        driver= new ChromeDriver(options);
         launchScreen= new LaunchScreen(driver);
         signInPopUp= new SignInPopUp(driver);
         customScreen= new CustomScreen(driver);
