@@ -56,24 +56,24 @@ public class LoginClass {
 //        }
     }
 
-//    @Test(priority = 2)
-//    public void searchForKempagowda()
-//    {
-//
-//        driver.findElement(By.xpath("//div[contains(text(),'Pick Up City, Airport, Address or Hotel')]")).click();
-//        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.id("origin")));
-//        driver.findElement(By.id("origin")).sendKeys("kempagowda");
-//        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//p[@class='ellipsis']")));
-//        List<WebElement> options = driver.findElements(By. xpath("//p[@class='ellipsis']"));
-//
-//        for (WebElement opt : options) {
-//            // For reading the texts with the given search results
-//            System.out.println(opt.getText());
-//            if (opt.getText().contains("Kempegowda Road, Bengaluru, India")){
-//                opt.click();
-//            }
-//        }
-//    }
+    @Test(priority = 2)
+    public void searchForKempagowda()
+    {
+
+        driver.findElement(By.xpath("//div[contains(text(),'Pick Up City, Airport, Address or Hotel')]")).click();
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.id("origin")));
+        driver.findElement(By.id("origin")).sendKeys("kempagowda");
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//p[@class='ellipsis']")));
+        List<WebElement> options = driver.findElements(By. xpath("//p[@class='ellipsis']"));
+
+        for (WebElement opt : options) {
+            // For reading the texts with the given search results
+            System.out.println(opt.getText());
+            if (opt.getText().contains("Kempegowda Road, Bengaluru, India")){
+                opt.click();
+            }
+        }
+    }
 
     @AfterSuite
     public void closeBrowser() {
